@@ -27,6 +27,25 @@
 	<a href= "/dojos">Dojos</a>
 	<!-- <a href= "/counter">Site Visit Counter</a> -->
 	
+	<h2>Ninja Gold - We've been here before!</h2>
+	
+	<h3>Geld Total: </h3>
+	
+	<h3>Geld Getting: </h3>
+	<div>
+		<p>Farm (earn 10 geld)</p>
+		<form action='processGeld' method='post'>
+			<div>
+	    		<input type='submit' value='Find Geld!'>
+	    	</div>
+	    </form>
+		
+	</div> 
+	
+	<h3>Activities: </h3>
+	
+	
+	
 	<h2>Send an Omikuji!</h2>
 	<form action='processLogin' method='post'>
 		<div>
@@ -58,7 +77,7 @@
     	</div>
     </form>
 	
-	
+	<h2>Page Visit Counter</h2>
 	<p>Count of index visits: <c:out value="${countToShow}"></c:out></p>
 	
 	<p><a href="/reset-counter/">Reset counter to zero</a></p>
@@ -72,8 +91,8 @@
     </c:forEach>  
 	
 	<%-- <h3> Today's date is: <%= new Date() %></h3> --%>
+	<h2>Hopper Assignment</h2>
 	
-	<p>Content from Hopper Assignment, keeping around for future ref</p>
 	<p>Customer Name: <c:out value="${customerName}"></c:out></p>
 	
 	<p>Item Name: <c:out value="${itemName }"></c:out></p>

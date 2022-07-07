@@ -7,11 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>java28omikujiform</title>
+<title>java29ninjagoldgame</title>
 </head>
 <body>
-	<h1>java28omikujiform Dashboard</h1>
-	<h2>Here is your Omikuji!</h2>
+	<h1>java29ninjagoldgame Dashboard</h1>
+	<h2><c:out value="${displayMessage}"></c:out></h2>
+	<h3>Here is your Omikuji!</h3>
 	<p>submitted elNumero: <c:out value="${elNumero}"/></p>
 	<p>submitted city: <c:out value="${city}"/></p>
 	<p>submitted person: <c:out value="${person}"/></p>
