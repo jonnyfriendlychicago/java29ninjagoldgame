@@ -29,17 +29,36 @@
 	
 	<h2>Ninja Gold - We've been here before!</h2>
 	
-	<h3>Geld Total: </h3>
+	<h3>Geld Total: <c:out value="${currentCountGeld}"></c:out></h3>
+	<p><a href="/resetGeld">Reset Geld to zero</a></p>
 	
 	<h3>Geld Getting: </h3>
 	<div>
-		<p>Farm (earn 10 geld)</p>
-		<form action='processGeld' method='post'>
-			<div>
-	    		<input type='submit' value='Find Geld!'>
-	    	</div>
+		<form action='/processGeld' method='post'>
+	    	<input type='submit' value='Farm Geld! (add 10-20)'>
+	    	<input type="hidden" name="geldLocation" value="farm">
+	    </form>
+	    
+	    <form action='/processGeld' method='post'>
+	    	<input type='submit' value='Cave Geld! (add 5-10)'>
+	    	<input type="hidden" name="geldLocation" value="cave">
 	    </form>
 		
+		<form action='/processGeld' method='post'>
+	    	<input type='submit' value='House Geld! (add 2-5)'>
+	    	<input type="hidden" name="geldLocation" value="house">
+	    </form>
+	    
+	    <form action='/processGeld' method='post'>
+	    	<input type='submit' value='Quest Geld! (add/remove 0-50)'>
+	    	<input type="hidden" name="geldLocation" value="quest">
+	    </form>
+	    
+	    <form action='/processGeld' method='post'>
+	    	<input type='submit' value='Spa Geld! ()lose 5-20)'>
+	    	<input type="hidden" name="geldLocation" value="spa">
+	    </form>
+	    
 	</div> 
 	
 	<h3>Activities: </h3>
@@ -47,7 +66,7 @@
 	
 	
 	<h2>Send an Omikuji!</h2>
-	<form action='processLogin' method='post'>
+	<form action='/processLogin' method='post'>
 		<div>
 			<label>Pick any number from 5 to 25:</label>
     		<input type="text" name='elNumero'>

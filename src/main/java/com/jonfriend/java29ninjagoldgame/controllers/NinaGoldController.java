@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 //import Item.java; 
 import com.jonfriend.java29ninjagoldgame.models.Item;
+import java.util.Random;  
 
 @Controller
 
@@ -66,8 +67,57 @@ public class NinaGoldController {
 		return "dashboard.jsp"; 
 	}
 	
+	@RequestMapping("/processGeld")
+	public String processGeld(
+			HttpSession session
+			, @RequestParam(value="geldLocation") String geldLocation
+	) 
+	{
+		SimpleDateFormat format = new SimpleDateFormat("MMMM d Y h:mm a");
+		ArrayList<String> actions = new ArrayList<>();
+		
+		Integer currentCountGeld = (Integer) session.getAttribute("currentCountGeld");
+
+		Random random = new Random();
+		Integer min = null;
+		Integer max = null;
+		Integer geldChange = null; 
+
+//		System.out.println("geldLocation: " + geldLocation); 
+		if (geldLocation.equals("farm") ){
+			min = 10;
+			max = 21; 
+		} else if (geldLocation.equals("cave")) {
+			min = 5;
+			max = 11; 
+		} else if (geldLocation.equals("house")) {
+			min = 2;
+			max = 6; 
+		} else if (geldLocation.equals("quest")) {
+			min = -50;
+			max = 51; 
+		} else {
+			min = -20;
+			max = -4; 
+		}
+		geldChange = random.nextInt(max - min) + min;
+		System.out.println("geldLocation: " + geldLocation + " geldChange: " + geldChange);		 
+		currentCountGeld += geldChange;	
+		
+		session.setAttribute("currentCountGeld", currentCountGeld);
+		return "redirect:/"; 
+	}
 	
-	
+	@RequestMapping("/resetGeld")
+	public String resetGeld(HttpSession session
+//			, Model model
+//			, HttpServletRequest request
+	) {
+		
+		session.setAttribute("currentCountGeld", 0);
+
+		return "redirect:/";
+	}
 	
 	
 	

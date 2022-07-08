@@ -65,9 +65,20 @@ public class HomeController {
     		currentCount ++; 
     		session.setAttribute("count", currentCount); 
     		}
-        
-//        currentCount ++; 
+         
         model.addAttribute("countToShow", currentCount);
+        // GELD stuff
+        
+        if (session.getAttribute("currentCountGeld") == null) {
+        	session.setAttribute("currentCountGeld", 0);
+        }
+        
+//        if (session.getAttribute("geldActivityArrayList") == null) {
+//        	session.setAttribute("geldActivityArrayList", 0);
+//        }
+        
+        Integer currentCountGeld = (Integer) session.getAttribute("currentCountGeld");
+        model.addAttribute("currentCountGeld", currentCountGeld);
         
 		return "index.jsp"; 
 	}
